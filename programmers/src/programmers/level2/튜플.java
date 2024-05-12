@@ -8,7 +8,7 @@ public class 튜플 {
 	public static void main(String[] args) {
 		
 		String s = "{{2,1,3},{2},{2,1},{2,1,3,4}}";
-		 solution(s);
+		solution(s);
 		
 	}
 	public static int[] solution(String s) {
