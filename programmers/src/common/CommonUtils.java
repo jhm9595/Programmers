@@ -10,7 +10,7 @@ public class CommonUtils{
 		StringBuilder sb = new StringBuilder();
 		sb.append('[');
 		for(int i = 0; i < arr.length; i++) {
-			sb.append(arr[i]).append(',');
+			sb.append(arr[i]).append(", ");
 		}
 		sb.deleteCharAt(sb.lastIndexOf(","));
 		sb.append(']');
@@ -28,7 +28,7 @@ public class CommonUtils{
 		StringBuilder sb = new StringBuilder();
 		sb.append('[');
 		for(int i = 0; i < arr.length; i++) {
-			sb.append(arr[i]).append(',');
+			sb.append(arr[i]).append(", ");
 		}
 		sb.deleteCharAt(sb.lastIndexOf(","));
 		sb.append(']');
