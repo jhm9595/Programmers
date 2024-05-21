@@ -3,6 +3,7 @@ package programmers.level2.kakaoblind1차;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -148,19 +149,19 @@ public class 뉴스클러스터링 {
 	public int solution3(String str1, String str2) {
 		
 		/*
-		테스트 1 〉	통과 (0.12ms, 77.2MB)
-		테스트 2 〉	통과 (0.17ms, 72.7MB)
-		테스트 3 〉	통과 (0.17ms, 75.3MB)
-		테스트 4 〉	통과 (2.83ms, 77.5MB)
-		테스트 5 〉	통과 (0.17ms, 74.1MB)
-		테스트 6 〉	통과 (0.17ms, 76.8MB)
-		테스트 7 〉	통과 (0.52ms, 66.9MB)
-		테스트 8 〉	통과 (0.11ms, 74.6MB)
-		테스트 9 〉	통과 (0.61ms, 71.7MB)
-		테스트 10 〉	통과 (1.02ms, 74.5MB)
-		테스트 11 〉	통과 (1.40ms, 80.1MB)
-		테스트 12 〉	통과 (0.09ms, 85.5MB)
-		테스트 13 〉	통과 (0.37ms, 67.8MB)
+		테스트 1 〉	통과 (0.17ms, 71.2MB)
+		테스트 2 〉	통과 (0.19ms, 71.7MB)
+		테스트 3 〉	통과 (0.09ms, 64.3MB)
+		테스트 4 〉	통과 (4.29ms, 81.4MB)
+		테스트 5 〉	통과 (0.16ms, 73.1MB)
+		테스트 6 〉	통과 (0.18ms, 74.3MB)
+		테스트 7 〉	통과 (0.75ms, 71.5MB)
+		테스트 8 〉	통과 (0.17ms, 75.6MB)
+		테스트 9 〉	통과 (0.53ms, 62.4MB)
+		테스트 10 〉	통과 (0.84ms, 71.7MB)
+		테스트 11 〉	통과 (1.30ms, 78MB)
+		테스트 12 〉	통과 (0.07ms, 75.5MB)
+		테스트 13 〉	통과 (0.50ms, 73.1MB)
 		*/
 		
 		str1 = str1.toUpperCase();
@@ -203,10 +204,19 @@ public class 뉴스클러스터링 {
 			}
 		}
 		
-		float mapCnt = _countMapAsFloat(map);
-		float ans = mapCnt / (mapCnt + _countMapAsFloat(map1) + _countMapAsFloat(map2)) * divisor;
+		float mapCnt = _countMap(map.values());
+		float ans = mapCnt / (mapCnt + _countMap(map1.values()) + _countMap(map2.values())) * divisor;
 		
 		return (int) ans;
+	}
+
+	private int _countMap(Collection<Integer> values) {
+		int cnt = 0;
+
+		for (int n : values) {
+			cnt += n;
+		}
+		return cnt;
 	}
 
 	public BigDecimal _countMapAsBigDecimal(Map<String, Integer> map) {
@@ -219,10 +229,21 @@ public class 뉴스클러스터링 {
 		return new BigDecimal(cnt);
 	}
 	
+
 	public float _countMapAsFloat(Map<String, Integer> map) {
 		float cnt = 0;
 		
 		for (float n : map.values()) {
+			cnt += n;
+		}
+		
+		return cnt;
+	}
+	
+	public int _countMap(Map<String, Integer> map) {
+		int cnt = 0;
+		
+		for (int n : map.values()) {
 			cnt += n;
 		}
 		
